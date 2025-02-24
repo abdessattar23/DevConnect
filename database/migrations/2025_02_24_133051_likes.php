@@ -25,6 +25,6 @@ Schema::create('likes', function (Blueprint $table) {
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('likes');
     }
 };

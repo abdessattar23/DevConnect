@@ -26,6 +26,6 @@ Schema::create('comments', function (Blueprint $table) {
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('comments');
     }
 };

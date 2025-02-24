@@ -11,21 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("projects", function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('repo_link')->nullable();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('title');
+            $table->text('description');
+            $table->string('repo_link');
             $table->timestamps();
-        }); 
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('projects');
     }
 };

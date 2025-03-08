@@ -1,0 +1,123 @@
+/* Retro Theme Styles */
+:root {
+    --retro-yellow: #f4c430;
+    --retro-black: #2c2c2c;
+    --retro-white: #faf9f6;
+    --retro-accent: #d4a760;
+}
+
+.retro-container {
+    background-color: var(--retro-white);
+    border: 2px solid var(--retro-accent);
+    padding: 2rem;
+    box-shadow: 4px 4px 0 var(--retro-accent);
+    animation: container-appear 0.5s ease-out;
+}
+
+.retro-input {
+    background-color: var(--retro-white) !important;
+    border: 1px solid var(--retro-accent) !important;
+    color: var(--retro-black) !important;
+    padding: 0.5rem !important;
+    margin: 0.5rem 0 !important;
+    font-family: 'Courier New', serif !important;
+}
+
+.retro-input:focus {
+    outline: none !important;
+    box-shadow: 0 0 5px var(--retro-accent) !important;
+    animation: input-glow 1.5s infinite alternate;
+}
+
+.retro-button {
+    background-color: var(--retro-accent) !important;
+    color: var(--retro-white) !important;
+    border: 1px solid var(--retro-black) !important;
+    padding: 0.5rem 1rem !important;
+    font-family: 'Courier New', serif !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    position: relative !important;
+    box-shadow: 2px 2px 0 var(--retro-black) !important;
+}
+
+.retro-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--retro-black) !important;
+}
+
+.retro-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--retro-black) !important;
+}
+
+.retro-label {
+    color: var(--retro-black) !important;
+    font-family: 'Courier New', serif !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 1px !important;
+}
+
+.retro-link {
+    color: var(--retro-accent) !important;
+    text-decoration: none !important;
+    position: relative !important;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.3s;
+}
+
+.retro-link:hover {
+    border-bottom-color: var(--retro-accent);
+    animation: none;
+}
+
+.retro-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--retro-accent);
+    background-color: var(--retro-white);
+    cursor: pointer;
+    position: relative;
+}
+
+.retro-checkbox:checked::before {
+    content: '✓';
+    position: absolute;
+    color: var(--retro-accent);
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes container-appear {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes input-glow {
+    from {
+        box-shadow: 0 0 5px var(--retro-yellow);
+    }
+    to {
+        box-shadow: 0 0 15px var(--retro-yellow);
+    }
+}
+
+@keyframes link-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

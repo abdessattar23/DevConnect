@@ -1,0 +1,69 @@
+@startuml linkdev
+hide circle
+
+skinparam classAttributeIconSize 0
+
+skinparam class {
+    BorderColor DarkGreen
+    ArrowColor DarkGreen
+}
+
+
+class Utilisateur {
+  -id: int
+  -nom: string
+  -email: string
+  -motDePasse: string
+  +register()
+  +login()
+  +ajouterConnexion(Utilisateur)
+  +publierPost(Post)
+
+}
+
+class Post {
+  +id: int
+  +contenu: string
+  +auteur: Utilisateur
+  +ajouterCommentaire(Commentaire)
+  +ajouterLike(Utilisateur)
+}
+
+class Commentaire {
+  +id: int
+  +contenu: string
+  +dateCommentaire: Date
+  +auteur: Utilisateur
+}
+
+class Notification {
+  +id: int
+  +message: string
+  +dateNotification: Date
+  +destinataire: Utilisateur
+}
+
+class Message {
+  +id: int
+  +contenu: string
+  +dateEnvoi: Date
+  +expediteur: Utilisateur
+  +destinataire: Utilisateur
+}
+
+class OffreEmploi {
+  +id: int
+  +titre: string
+  +description: string
+  +datePublication: Date
+  +auteur: Utilisateur
+}
+
+Utilisateur "1" --* "*" Post 
+Utilisateur "1" -- "*" Commentaire
+Utilisateur "1" -- "*" Notification 
+Utilisateur "1" -- "*" Message 
+Utilisateur "1" -- "*" OffreEmploi 
+Post "1" --* "*" Commentaire  
+
+@enduml
